@@ -11,7 +11,8 @@ pipeline {
         stage('build'){
             steps {
                 // Get some code from a GitHub repository
-                  echo "Test"            
+                  sh 'npm install'
+                sh 'npm run build'
             }
         }
         }
