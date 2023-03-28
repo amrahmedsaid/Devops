@@ -13,6 +13,6 @@ pipeline {
                 // Get some code from a GitHub repository
                   ng build --prod
             }
-        }
-        }
+         }
+       }
     }
