@@ -1,28 +1,18 @@
 pipeline {
     agent any
-    {
-            image 'node:6-alpine'
-            args '-p 3000:3000'
-        }
-    }
-  
+
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                // Get some code from a GitHub repository
+                git 'https://github.com/amrahmedsaid/Devops'               
             }
-        }
-        stage('Test') {
+            }
+        stage('build'){
             steps {
-                sh './jenkins/scripts/test.sh'
+                // Get some code from a GitHub repository
+                  ng build --prod
             }
-        }
-        stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './jenkins/scripts/kill.sh'
-            }
-        }
+         }
+       }
     }
-}
