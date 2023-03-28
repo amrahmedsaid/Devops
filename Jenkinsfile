@@ -11,8 +11,7 @@ pipeline {
         stage('build'){
             steps {
                 // Get some code from a GitHub repository
-                  sh 'npm install'
-                sh 'npm run build'
+                  ng build --prod
             }
         }
         }
