@@ -12,6 +12,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                   ng build --prod
+                stash includes: 'dist/', name: 'dist'
             }
          }
        }
