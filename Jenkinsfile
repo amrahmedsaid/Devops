@@ -21,7 +21,7 @@ pipeline {
         stage('Tag build to Docker Image'){
             steps{
                unstash 'dist'
-                sh 'ls dist'
+             
                 sh 'docker build -t amrsaid172/todo-application .'
  
             }
