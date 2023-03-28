@@ -19,7 +19,7 @@ pipeline {
         stage('Build and Push Docker Image'){
             steps{
                unstash 'dist'
-                docker build . 
+                
             }
         }
        }
