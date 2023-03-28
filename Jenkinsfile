@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    envirnoment{
+    environment{
         DOCKERHUB_CREDENTIAL= credentials('amrdocker')
     }
     stages {
