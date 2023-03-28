@@ -19,7 +19,8 @@ pipeline {
         stage('Build and Push Docker Image'){
             steps{
                unstash 'dist'
-               dockerImage = docker.build registry + ":$BUILD_NUMBER"  
+                sh 'docker build .'
+ 
             }
         }
        }
