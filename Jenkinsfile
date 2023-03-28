@@ -21,6 +21,7 @@ pipeline {
         stage('Build and Push Docker Image'){
             steps{
                unstash 'dist'
+                sh 'ls dist'
                 sh 'docker build -t amrsaid172/todo-application .'
  
             }
