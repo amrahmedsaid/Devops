@@ -11,7 +11,8 @@ pipeline {
         stage('build'){
             steps {
                 // Get some code from a GitHub repository
-                  ng build --prod
+                  sh 'npm install'
+                sh 'npm run build'
                 stash includes: 'dist/', name: 'dist'
             }
          }
