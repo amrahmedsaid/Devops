@@ -18,7 +18,7 @@ pipeline {
          }
         stage('Build and Push Docker Image'){
             steps{
-                echo hamada
+               unstash 'dist'
             }
         }
        }
