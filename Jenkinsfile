@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        DOCKERHUB_CREDENTIAL= credentials('amrdocker')
+        DOCKERHUB_CREDENTIALS= credentials('amrdocker')
     }
     stages {
         stage('Build') {
@@ -28,6 +28,7 @@ pipeline {
         }
         stage('login to docker'){
             steps{sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                  
                  }
         }
        }
