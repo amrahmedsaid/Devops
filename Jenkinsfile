@@ -4,13 +4,13 @@ pipeline {
         DOCKERHUB_CREDENTIALS= credentials('amrdocker')
     }
     stages {
-        stage('Build') {
+        stage('checkout code from repo') {
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/amrahmedsaid/Devops'               
             }
             }
-        stage('build'){
+        stage('compile the code'){
             steps {
                 // Get some code from a GitHub repository
                   sh 'npm install'
@@ -18,7 +18,7 @@ pipeline {
                 stash includes: 'dist/', name: 'dist'
             }
          }
-        stage('Build and Push Docker Image'){
+        stage('Tag build to Docker Image'){
             steps{
                unstash 'dist'
                 sh 'ls dist'
@@ -33,7 +33,7 @@ pipeline {
                   
                  }
         }
-         stage('Push') {
+         stage('Push to docker hub') {
       steps {
         sh 'docker push amrsaid172/todo-application'
       }
